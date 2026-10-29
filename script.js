@@ -1,7 +1,20 @@
 let menuArr = [];
 let menuSection = document.querySelector("#menu_section");
-console.log("Screen width:", screen.width);
+// console.log("Screen width:", screen.width);
 
+const menuToggle = document.querySelector("#menu_toggle");
+const menuIcon = menuToggle.querySelector("aside_toggle");
+const aside = document.querySelector("aside");
+const asidetogglebtn = document.querySelector("#aside_toggle_btn");
+menuToggle.addEventListener("click", () => {
+  aside.classList.toggle("active");
+  asidetogglebtn.classList.remove("d-none");
+});
+
+asidetogglebtn.addEventListener("click", () => {
+  aside.classList.toggle("active");
+  asidetogglebtn.classList.add("d-none");
+});
 //order array functionality
 function generateRandomOrder(menuArr) {
   let randomIndices = new Set();
@@ -82,6 +95,9 @@ function generateOrder(menuArr) {
     .then((data) => {
       console.log("Payment Status: ", data);
       thankyouFnc();
+    })
+    .catch((error) => {
+      console.log("error encountered", error);
     });
 }
 
