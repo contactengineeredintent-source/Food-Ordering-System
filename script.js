@@ -1,5 +1,6 @@
 let menuArr = [];
 let menuSection = document.querySelector("#menu_section");
+console.log("Screen width:", screen.width);
 
 //order array functionality
 function generateRandomOrder(menuArr) {
